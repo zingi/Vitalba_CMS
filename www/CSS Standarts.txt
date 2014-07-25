@@ -1,0 +1,7 @@
+CSS Standarts:
+
+H1:	Title for the Page
+H2:	Title for Subpage
+H3:	Title for an Article
+H4:	
+H5:	Author
