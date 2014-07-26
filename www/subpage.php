@@ -4,6 +4,7 @@
 		private $databaseConnection;
 		private $id;
 		private $page;
+		private $subPageTitle;
 
 		// Constructors
 		function subpage ()	{
@@ -36,6 +37,21 @@
 
 		function printSubPage ()	{
 			echo $page;
+		}
+
+		function getTitle ()	{
+			if ($usbPageTitle != "")	{
+				return $subPageTitle;
+			}	else	{
+				return "";
+			}
+			
+		}
+
+		function getURL ()	{
+			$url;
+
+			return $url;
 		}
 		
 		// Getters & Setters

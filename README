@@ -1,22 +1,27 @@
 **************************************************
-*												 *
+*                                                *
 *         Fabio Vitalba - Copyright (c)          *
 *     PHP Vitalba Content Management System      *
-*												 *
+*                                                *
 **************************************************
 
 1.0 Introduction
+	
+	1.1 Requirements
+		- A Webserver with a MySQL Database
+		- 
 
-
-	1.1 Structures
+	1.2 Structures
 		- CLASSES
 		--- database.php
 		--- article.php
-		--- page.php
+		--- subpage.php
+		--- navigation.php
 		--- 
 		- PAGES
 		--- index.php
+		--- 
 		- SCRIPTS
-		---
+		--- 
 
-	1.2	
+	1.3	

@@ -14,7 +14,7 @@
 		}
 		
 		// Functions
-		function doSQLQuery ($sqlQuery)	{
+		function returnSQLQuery ($sqlQuery)	{
 			$ergebnis = mysql_query($sqlQuery);
 			
 			$datensatz = array();
@@ -26,14 +26,14 @@
 			return $datensatz;
 		}
 		
-		function doSimpleSQL ($sqlQuery)	{
+		function executeSQLQuery ($sqlQuery)	{
 			$ergebnis = mysql_query($sqlQuery);
 		}
 		
 		function getArticleTitle ($id, $lang)	{
 			// To-Do: Add different languages
 			//		  Verify TABLE for the Article Title
-			$titles = $this->doSQLQuery("SELECT * FROM titel WHERE ID=".$id);
+			$titles = $this->returnSQLQuery("SELECT * FROM titel WHERE ID=".$id);
 			if ($titles == NULL)	{
 				$title = "Titel nicht gefunden.";
 			}	else	{
@@ -54,7 +54,7 @@
 				$lang = "de";
 			}
 
-			$texts = $this->doSQLQuery("SELECT * FROM content WHERE ID=".$id);
+			$texts = $this->returnSQLQuery("SELECT * FROM content WHERE ID=".$id);
 			
 			if ($texts == NULL)	{
 				$text = "Text nicht gefunden.";
