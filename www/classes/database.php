@@ -28,6 +28,8 @@
 								    Content TEXT NOT NULL,
 								    Author VARCHAR(15),
 								    CreationDate DATETIME,
+								    CSSClass VARCHAR(25),
+								    CSSId VARCHAR(25),
 									PageId INTEGER NOT NULL,
 								    PRIMARY KEY (Index)");
 				
