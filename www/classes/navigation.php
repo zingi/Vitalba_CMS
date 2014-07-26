@@ -31,7 +31,7 @@
 		}
 
 		function printNavigationAsList ()	{
-			$navList = "<div class='vcms_navigation'>" +
+			$navList = "<nav><div class='vcms_navigation'>" +
 							"<ul>";
 
 			foreach ($pages as $page)	{
@@ -40,11 +40,29 @@
 			}
 
 			$navList += 	"</ul>" +
-						"</div>";
+						"</div></nav>";
 
 			echo $navList;
 		}
 		
+		function printNavigationDropDown ()	{
+			if ($parentId = "")	{
+				echo "";
+			}	else	{
+				$navDropDown = "<div class='vcms_navdropdown'" +
+									"<ul>";
+				foreach ($pages as $page)	{
+					// To-Do: Verify how to get the Page Title
+					$navDropDown += "<li><a href='" + $page->getURL() + "'>" + $page->getTitle() + "</a></li>";
+				}
+
+				$navDropDown += 	"</ul>" +
+								"</div>";
+
+				echo $navDropDown;					
+			}
+		}
+
 		// Getters & Setters
 		function setparentId ($parentPId)	{
 			$parentId = $parentPId;

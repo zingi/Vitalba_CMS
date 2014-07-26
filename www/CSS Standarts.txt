@@ -5,3 +5,18 @@ H2:	Title for Subpage
 H3:	Title for an Article
 H4:	
 H5:	Author
+
+CLASSES:
+vcms_navigation: The Navigation Pane for the Mainpages
+vcms_navdropdown: The Navigation List for a Page with Subpages
+
+TABLES:
+"vcms_article", 
+   "Index INTEGER NOT NULL AUTO_INCREMENT,
+    Title VARCHAR(50) NOT NULL,
+    SubTitle VARCHAR(100),
+    Content TEXT NOT NULL,
+    Author VARCHAR(15),
+    CreationDate DATETIME,
+	PageId INTEGER NOT NULL,
+    PRIMARY KEY (Index)");

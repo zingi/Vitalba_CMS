@@ -11,6 +11,23 @@
 					echo "Datenbank konnte nicht gefunden werden.";
 				}
 			}
+
+			// To-Do: Check if Tables exist
+			if (TRUE)	{
+				// Do Nothing, Maybe check consistency?
+			}	else	{
+				// To-Do: Create all needed Tables
+				$this->createTable("vcms_article", 
+								   "Index INTEGER NOT NULL AUTO_INCREMENT,
+								    Title VARCHAR(50) NOT NULL,
+								    SubTitle VARCHAR(100),
+								    Content TEXT NOT NULL,
+								    Author VARCHAR(15),
+								    CreationDate DATETIME,
+									PageId INTEGER NOT NULL,
+								    PRIMARY KEY (Index)");
+				
+			}
 		}
 		
 		// Functions
@@ -30,10 +47,16 @@
 			$ergebnis = mysql_query($sqlQuery);
 		}
 		
+		// Set-Up Tables
+		function createTable ($tableName, $fields)	{
+			$this->executeSQLQuery("CREATE TABLE " + $tableName + " (
+										" + $fields + ");");
+		}
+
 		function getArticleTitle ($id, $lang)	{
 			// To-Do: Add different languages
 			//		  Verify TABLE for the Article Title
-			$titles = $this->returnSQLQuery("SELECT * FROM titel WHERE ID=".$id);
+			$titles = $this->returnSQLQuery("SELECT * FROM vcms_articles WHERE ID=".$id);
 			if ($titles == NULL)	{
 				$title = "Titel nicht gefunden.";
 			}	else	{
@@ -54,7 +77,7 @@
 				$lang = "de";
 			}
 
-			$texts = $this->returnSQLQuery("SELECT * FROM content WHERE ID=".$id);
+			$texts = $this->returnSQLQuery("SELECT * FROM vcms_articles WHERE ID=".$id);
 			
 			if ($texts == NULL)	{
 				$text = "Text nicht gefunden.";
