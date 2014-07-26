@@ -4,11 +4,15 @@
 
 		// Constructors
 		function database ()	{
-			if (!mysql_connect('localhost', 'drockerhofit', 'vorUnuJ4:8Jy9'))	{
-				echo "Datenbankverbindung konnte nicht aufgebaut werden.";
+			// To-Do: Create dynamic Database Connection
+			if (!mysql_connect('localhost', '', ''))	{
+				// To-Do: Create proper Error Message
+				//echo "Datenbankverbindung konnte nicht aufgebaut werden.";
 			}	else	{
-				if (!mysql_select_db('drockerhofit'))	{
-					echo "Datenbank konnte nicht gefunden werden.";
+				// To-Do: Select right Database Connection
+				if (!mysql_select_db(''))	{
+					// To-Do: Create proper Error Message
+					//echo "Datenbank konnte nicht gefunden werden.";
 				}
 			}
 
