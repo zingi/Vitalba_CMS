@@ -15,7 +15,7 @@
 			$databaseConnection = $dbCon;
 			$id = $pid;
 		}
-		
+
 		// Functions
 		function buildSubPage ()	{
 			// To-Do: Get specified information about the Subpage
@@ -23,7 +23,7 @@
 			$subPageTitle;
 			$articles;
 
-			$page = "<section>" +
+			$page =  "<section>" +
 						"<h2>" + $subPageTitle + "</h2>";
 
 			// Print all relevant articles
@@ -45,7 +45,6 @@
 			}	else	{
 				return "";
 			}
-			
 		}
 
 		function getURL ()	{
@@ -53,7 +52,7 @@
 
 			return $url;
 		}
-		
+
 		// Getters & Setters
 		function setId ($pageId)	{
 			$id = $pageId;

@@ -20,9 +20,9 @@
 			if (TRUE)	{
 				// Do Nothing, Maybe check consistency?
 			}	else	{
-				// To-Do: Create all needed Tables
-				$this->createTable("vcms_article", 
-								   "Index INTEGER NOT NULL AUTO_INCREMENT,
+				// To-Do: Create all needed Tables, verify with Excel Table Architecture
+				/*$this->createTable("vcms_article", 
+								   "Index INT NOT NULL AUTO_INCREMENT,
 								    Title VARCHAR(50) NOT NULL,
 								    SubTitle VARCHAR(100),
 								    Content TEXT NOT NULL,
@@ -30,12 +30,12 @@
 								    CreationDate DATETIME,
 								    CSSClass VARCHAR(25),
 								    CSSId VARCHAR(25),
-									PageId INTEGER NOT NULL,
+								    PageId INTEGER NOT NULL,
 								    PRIMARY KEY (Index)");
-				
+				*/
 			}
 		}
-		
+
 		// Functions
 		function returnSQLQuery ($sqlQuery)	{
 			$ergebnis = mysql_query($sqlQuery);
@@ -45,14 +45,13 @@
 			while($row = mysql_fetch_array($ergebnis))	{
 				array_push($datensatz, $row);
 			}
-			
 			return $datensatz;
 		}
-		
+
 		function executeSQLQuery ($sqlQuery)	{
 			$ergebnis = mysql_query($sqlQuery);
 		}
-		
+
 		// Set-Up Tables
 		function createTable ($tableName, $fields)	{
 			$this->executeSQLQuery("CREATE TABLE " + $tableName + " (
@@ -70,7 +69,7 @@
 			}
 			return $title;
 		}
-		
+
 		function getArticleText ($id, $lang)	{
 			// To-Do: Verify TABLE for the Article
 			if (strcasecmp($lang, "de") == 0)	{
@@ -82,7 +81,7 @@
 			}	else 	{
 				$lang = "de";
 			}
-
+			
 			$texts = $this->returnSQLQuery("SELECT * FROM vcms_articles WHERE ID=".$id);
 			
 			if ($texts == NULL)	{
@@ -92,7 +91,7 @@
 			}
 			return $text;
 		}
-		
+
 		function getArticleAuthor ($id, $lang)	{
 			// To-Do: Get Author of the Article
 		}

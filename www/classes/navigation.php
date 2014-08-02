@@ -18,7 +18,7 @@
 			$databaseConnection = $dbCon;
 			$parentId = $parentPId;
 		}
-		
+
 		// Functions
 		function buildPageList ()	{
 			// To-Do: Get specified information about the Pages
@@ -44,7 +44,7 @@
 
 			echo $navList;
 		}
-		
+
 		function printNavigationDropDown ()	{
 			if ($parentId = "")	{
 				echo "";
