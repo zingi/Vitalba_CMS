@@ -17,3 +17,6 @@ vcms_usercard: The User Card to display Information about a certain User
 vcms_usrlabel: The Label for the Information displayed in the User Card
 vcms_usrvalue: The Value for the Information displayed in the User Card  
 vcms_usravatar: The Avatar of the User
+vcms_usrmaininfo: The Container for the Main Information about the User in the User Card
+vcms_usraddressinfo: The Container for the Address Information about the User in the User Card
+vcms_usrcontactinfo: The Containter for the Contact Information about the User in the User Card
