@@ -45,10 +45,23 @@
 			*/
 			// To-Do: Fill in Captions from Form.php
 			//		  database->getUserAsArray()
-			$user = $databaseConnection->getUserAsArray();
+			$user = $databaseConnection->getUserAsArray($id);
+			$caption = $databaseConnection->getCaptions("userCard");
+
 			$printString  = "<article class='vcms_usercard " + $css + "'>";
-			$printString += 	"<div class='vcms_label'><b>" + $caption['username'] + ":</b> " + $user['username'] + "</div>";
-			$printString += 	"";
+			$printString += 	"<div class='vcms_usravatar'>" + $user['image'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['uname'] + ": </div><div class='vcms_usrvalue'>" + $user['username'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['name_'] + ": </div><div class='vcms_usrvalue'>" + $user['name'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['sname'] + ": </div><div class='vcms_usrvalue'>" + $user['surname'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['birth'] + ": </div><div class='vcms_usrvalue'>" + $user['birthdate'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['descr'] + ": </div><div class='vcms_usrvalue'>" + $user['description'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['sex__'] + ": </div><div class='vcms_usrvalue'>" + $user['sex'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['joind'] + ": </div><div class='vcms_usrvalue'>" + $user['joindate'] + "</div>";
+			$printString += 	"<div class='vcms_usrlabel'>" + $caption['lasto'] + ": </div><div class='vcms_usrvalue'>" + $user['lastlogin'] + "</div>";
+			
+			// To-Do: If the user is watching his own card, display all information.
+			//		  If enabled, show Adress/Contact information
+
 			$printString += "</article>";
 		}
 

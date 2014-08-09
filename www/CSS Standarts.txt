@@ -14,4 +14,6 @@ vcms_comment: The Comment Container for Comments beneath Articles
 vcms_regform: The Registration Form
 vcms_loginform: The Login Form
 vcms_usercard: The User Card to display Information about a certain User
-vcms_usrlabel: The Label for the Information displayed in the User Card  
+vcms_usrlabel: The Label for the Information displayed in the User Card
+vcms_usrvalue: The Value for the Information displayed in the User Card  
+vcms_usravatar: The Avatar of the User

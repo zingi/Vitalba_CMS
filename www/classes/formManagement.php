@@ -20,8 +20,9 @@
 		function buildForm ($case, $action)	{
 			/*	Captions:
 			 *	regis: Registration Form
+			 *	uname: Username
 			 *	name_: Name
-			 *	surna: Surname
+			 *	sname: Surname
 			 *	passw: Password
 			 *	rpass: Repeat Password
 			 *	male_: Male
@@ -56,8 +57,9 @@
 					$form = "<form name='" + $databaseConnection->getCaption("regis") + "' action='" + $action + "' method='post' class='vcms_regform " + $class + "'>";
 					
 					// User Data
+					$form += 	"<label>" + $databaseConnection->getCaption("uname") + ":	</label><input type='text' name='usrname'></br>";
 					$form += 	"<label>" + $databaseConnection->getCaption("name_") + ":	</label><input type='text' name='name'></br>";
-					$form += 	"<label>" + $databaseConnection->getCaption("surna") + ":	</label><input type='text' name='surname'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("sname") + ":	</label><input type='text' name='surname'></br>";
 					$form += 	"<label>" + $databaseConnection->getCaption("user_") + ":	</label><input type='text' name='usrname'></br>";
 					$form += 	"<label>" + $databaseConnection->getCaption("passw") + ":	</label><input type='password' name='pwd0'></br>";
 					$form += 	"<label>" + $databaseConnection->getCaption("rpass") + ":	</label><input type='password' name='pwd1'></br>";
@@ -89,7 +91,7 @@
 
 					$form = "<form name='" + $databaseConnection->getCaption("login") + "' action='" + $action + "' method='post' class='vcms_loginform " + $class + "'>";
 					
-					$form += 	"<label>" + $databaseConnection->getCaption("user_") + ":	</label><input type='text' name='" + $username + "'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("uname") + ":	</label><input type='text' name='" + $username + "'></br>";
 					$form += 	"<label>" + $databaseConnection->getCaption("passw") + ":	</label><input type='password' name='" + $pwd + "'></br>";	
 
 					$form += 	"<input type='submit' value='" + $databaseConnection->getCaption("submi") + "'>";
