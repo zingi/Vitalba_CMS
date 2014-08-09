@@ -14,12 +14,14 @@
 	1.2 Structures
 		- CLASSES
 		--- database.php
-		--- article.php
-		--- subpage.php
 		--- navigation.php
+		--- subpage.php
 		--- gallery.php
+		--- article.php
 		--- comment.php
 		--- 
+		---
+		---
 		- PAGES
 		--- index.php
 		--- template.html
@@ -98,9 +100,9 @@
 		--- Language_ID, INT NOT NULL FOREIGN KEY
 		--- Name, VARCHAR(20) NOT NULL
 		--- Surname, VARCHAR(20) NOT NULL
-		--- Birthdate, DATE NULL
+		--- Birthdate, DATE NOT NULL
 		--- Description, TEXT NULL
-		--- Sex, VARCHAR(1) NULL
+		--- Sex, VARCHAR(1) NOT NULL
 		--- Address_ID, INT NOT NULL FOREIGN KEY
 		--- Contact_ID, INT NOT NULL FOREIGN KEY
 		--- Join_Date, DATETIME NOT NULL
