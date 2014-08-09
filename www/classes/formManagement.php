@@ -1,14 +1,11 @@
 <?php
-
 	class FormManagement	{
-		
-		//Private Attributes
+		// Private Attributes
 		private $databaseConnection;
 		private $form;
 		private $class;
 
-
-		//Constructors
+		// Constructors
 		function formManagement ()	{
 			$databaseConnection = new database();
 
@@ -19,115 +16,100 @@
 			$class = $cssClass;
 		}
 
-		//Functions
-
+		// Functions
 		function buildForm ($case, $action)	{
+			/*	Captions:
+			 *	regis: Registration Form
+			 *	name_: Name
+			 *	surna: Surname
+			 *	passw: Password
+			 *	rpass: Repeat Password
+			 *	male_: Male
+			 *	femal: Female
+			 *	stree: Street
+			 *	house: House
+			 *	posta: Postal Code
+			 *	city_: City
+			 *	count: Country Code
+			 *	submi: Submit
+			 *	login: Login Form
+			 *	stre2: Street 2
+			 *	provi: Province Code
+			 *	regio: Region
+			 *	prefi: Prefix
+			 *	langu: Language
+			 */
+
+			//TO-DO: Create getCaption - pawi = password wiederholung
+			//		 Create getCaption into an Array for less Database strain
 			/*
-				++ + TO-DO: $languageID + ++ + get required data + ++ 
-			*/
-
-
-			switch ($case, $action) {
+				---register
+				---login
+				---captcha
+				---email
+				---
+			*/ 
+			switch ($case) {
 				case "register":
-					# code...
-				//Vars (not null in readme)
-					//vars auto-increment
-					$userID			=
+					// To-Do: Verify only the needed attributes. Skip Uneccessary ones.
+					//		  Create Grouping for User Data, Contact Data and Optional Data
+					$form = "<form name='" + $databaseConnection->getCaption("regis") + "' action='" + $action + "' method='post' class='vcms_regform " + $class + "'>";
 					
-					//vars not auto
-						//userDaten
-						$name			=
-						$surname		=
-						$username		= 
-						$pwd 			=
-						$birthday		=
-						$sex			=
+					// User Data
+					$form += 	"<label>" + $databaseConnection->getCaption("name_") + ":	</label><input type='text' name='name'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("surna") + ":	</label><input type='text' name='surname'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("user_") + ":	</label><input type='text' name='usrname'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("passw") + ":	</label><input type='password' name='pwd0'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("rpass") + ":	</label><input type='password' name='pwd1'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("male_") + ":	</label><input type='radio' name='sex' value='0'>";
+					$form += 	"<label>" + $databaseConnection->getCaption("femal") + ":	</label><input type='radio' name='sex' value='1'></br>";
+					
+					// User Contact Data
+					$form += 	"<label>" + $databaseConnection->getCaption("stree") + ":	</label><input type='text' name='street0'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("house") + ":	</label><input type='text' name='house'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("posta") + ":	</label><input type='text' name='postalcode'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("city_") + ":	</label><input type='text' name='city'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("count") + ":	</label><input type='text' name='countrycode'></br>";
+					
+					// Optional Data
+					$form += 	"<label>" + $databaseConnection->getCaption("stre2") + ":	</label><input type='text' name='street1'></br>";	
+					$form += 	"<label>" + $databaseConnection->getCaption("provi") + ":	</label><input type='text' name='provincecode'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("regio") + ":	</label><input type='text' name='region'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("prefi") + ":	</label><input type='text' name='prefix'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("langu") + ":	</label><input type='text' name='language'></br>";				
 
-						//userContactData
-						$street			=
-						$houseNr		=
-						$postalCode		=
-						$city			=
-						$countryCode	=
-
-				//vars (null in README)
-				/*
-				*	$secondStreet	=
-				*	$provinceCode	=
-				*	$region 		=
-				*	$prefix			=	
-				*	$languageID		=
-				*/
-
-
-				//form zu css standarts addn
-				//TO-DO: Creat getCaption - pawi = password wiederholung
-					$form = "<form name = " $databaseConnection->getCaption("form") " action = " + $action + " method = "post" class='vcms_form" + $class + "'>";
-					//userDaten
-						$form += 	"<label>" + $databaseConnection->getCaption("name") + ":	</label><input type="text" name = " + $name + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("surn") + ":	</label><input type="text" name = " + $surname + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("user") + ":	</label><input type="text" name = " + $username + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("pass") + ":	</label><input type="password" name = " + $pwd + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("pawi") + ":	</label><input type="password" name = " + $pwd1 + "></br>";//gaet worscheinlich net, deswegen tua -> viel Spiel, Spaß und Sponnung wia a soa olter Sock amol gsg hot, der wos des sicher im Traum schreibm kannat!
-						$form += 	"<label>" + $databaseConnection->getCaption("male") + ":	</label><input type="radio" name = " + $sex + " value = "1">";
-						$form += 	"<label>" + $databaseConnection->getCaption("fema") + ":	</label><input type="radio" name = " + $sex + " value = "0"></br>";
-						//userContactData
-						$form += 	"<label>" + $databaseConnection->getCaption("stre") + ":	</label><input type="text" name = " + $street + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("hous") + ":	</label><input type="text" name = " + $houseNr + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("post") + ":	</label><input type="text" name = " + $postalCode + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("city") + ":	</label><input type="text" name = " + $city + "></br>";
-						$form += 	"<label>" + $databaseConnection->getCaption("coun") + ":	</label><input type="text" name = " + $countryCode + "></br>";
-						
-						//null vars
-						/*
-						*	$form += 	"<label>"+ $databaseConnection->getCaption(?) + ":	" + "<input type=text name = "$secondStreet">" + "</label>"	
-						*	$form += 	"<label>"+ $databaseConnection->getCaption(?) + ":	" + "<input type=text name = "$provinceCode">" + "</label>"
-						*	$form += 	"<label>"+ $databaseConnection->getCaption(?) + ":	" + "<input type=text name = "$region">" + "</label>"
-						*	$form += 	"<label>"+ $databaseConnection->getCaption(?) + ":	" + "<input type=text name = "$prefix">" + "</label>"
-						*	$form += 	"<label>"+ $databaseConnection->getCaption(?) + ":	" + "<input type=text name = "$languageID">" + "</label>"				
-						*/
-
-						if($pwd == $pwd1){
-							$form += 	"<input type="submit" value=" + $databaseConnection->getCaption("subm") + ">"
-						}
-						
+					$form += 	"<input type='submit' value='" + $databaseConnection->getCaption("submi") + "'>";
 					$form += "</form>";
 					break;
-				case "login":
-					# code...
 
+				case "login":
+					// To-Do: Create Password and User encryption
 					$username;
 					$password;
 
-					$form = "<form name = "+ $databaseConnection->getCaption("form") +" action = " + $action + " method = "post" class='vcms_form" + $class + "'>";
-					$form += 	"<label>" + $databaseConnection->getCaption("user") + ":	</label><input type="text" name = " + $username + "></br>";
-					$form += 	"<label>" + $databaseConnection->getCaption("pass") + ":	</label><input type="password" name = " + $pwd + "></br>";	
+					$form = "<form name='" + $databaseConnection->getCaption("login") + "' action='" + $action + "' method='post' class='vcms_loginform " + $class + "'>";
 					
-					$form += 	"<input type="submit" value=" + $databaseConnection->getCaption("subm") + ">"
+					$form += 	"<label>" + $databaseConnection->getCaption("user_") + ":	</label><input type='text' name='" + $username + "'></br>";
+					$form += 	"<label>" + $databaseConnection->getCaption("passw") + ":	</label><input type='password' name='" + $pwd + "'></br>";	
+
+					$form += 	"<input type='submit' value='" + $databaseConnection->getCaption("submi") + "'>";
 					$form += "</form>";
 
 					break;
+
 				case "email":
-					# code...
-
-
+					// To-Do: Create the E-Mail Sending Form
 
 					break;
 				
 				default:
-					# code...
+					// To-Do: Error Message?
+
 					break;
 			}
 		}
+
 		//Getter & Setter
 
 	}
-
-/*
-	---register
-	---login
-	---captcha
-	---email
-	---
-*/ 
 ?>

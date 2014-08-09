@@ -19,13 +19,14 @@
 		--- gallery.php
 		--- article.php
 		--- comment.php
+		--- formmanagement.php
+		--- sessionmanagement.php
+		--- user.php
 		--- 
-		---
-		---
 		- PAGES
 		--- index.php
 		--- template.html
-		---
+		--- 
 		- SCRIPTS
 		--- 
 
